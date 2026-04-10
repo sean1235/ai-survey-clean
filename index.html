@@ -3,68 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI工具问卷调查系统 - 扫码参与</title>
+    <title>AI工具问卷调查系统</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .qr-container {
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 60px;
-            margin: 40px 0;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .main-container {
+            max-width: 900px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        
+        .header .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .selection-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
             flex-wrap: wrap;
         }
         
-        .qr-box {
-            text-align: center;
-            padding: 30px;
+        .selection-card {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            border-radius: 20px;
+            padding: 40px 30px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            cursor: pointer;
         }
         
-        .qr-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        .selection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
         
-        .qr-box h2 {
+        .selection-card .icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .selection-card h2 {
             margin: 0 0 10px 0;
             color: #2c3e50;
-            font-size: 24px;
+            font-size: 28px;
         }
         
-        .qr-box p {
-            margin: 0 0 20px 0;
+        .selection-card .subtitle {
             color: #7f8c8d;
             font-size: 16px;
+            margin-bottom: 20px;
         }
         
-        .qr-code {
-            width: 250px;
-            height: 250px;
-            margin: 0 auto 20px;
-            padding: 15px;
-            background: white;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+        .selection-card .description {
+            color: #95a5a6;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            min-height: 60px;
         }
         
-        .qr-link {
+        .selection-card .btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
+            padding: 12px 40px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-weight: 500;
             transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
         
-        .qr-link:hover {
+        .selection-card .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .qr-section {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .qr-toggle {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 10px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .qr-toggle:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .qr-container {
+            display: none;
+            margin-top: 30px;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .qr-container.show {
+            display: flex;
+        }
+        
+        .qr-box {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .qr-box h3 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 20px;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            padding: 10px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
         }
         
         .admin-link {
@@ -73,74 +168,72 @@
         }
         
         .admin-link a {
-            color: #95a5a6;
+            color: white;
             text-decoration: none;
             font-size: 14px;
-            transition: color 0.3s;
+            opacity: 0.8;
+            transition: opacity 0.3s;
         }
         
         .admin-link a:hover {
-            color: #667eea;
+            opacity: 1;
         }
         
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .header h1 {
-            margin: 0 0 10px 0;
-            color: #2c3e50;
-            font-size: 32px;
-        }
-        
-        .header .subtitle {
-            color: #7f8c8d;
-            font-size: 18px;
-        }
-        
-        .instructions {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            color: #555;
-        }
-        
-        .instructions p {
-            margin: 5px 0;
-            font-size: 16px;
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .selection-card {
+                width: 100%;
+                max-width: 320px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="main-container">
         <div class="header">
-            <h1>🎓 AI工具问卷调查</h1>
+            <h1>🎓 AI工具问卷调查系统</h1>
             <p class="subtitle">Survey System for AI Tools</p>
         </div>
         
-        <div class="instructions">
-            <p>📱 <strong>使用手机扫描下方二维码</strong>，即可参与问卷调查</p>
-            <p>Scan the QR code below to participate in the survey</p>
-        </div>
-        
-        <div class="qr-container">
-            <!-- 学生问卷 -->
-            <div class="qr-box">
-                <h2>👨‍🎓 学生问卷</h2>
-                <p>Student Survey</p>
-                <div class="qr-code" id="student-qr"></div>
-                <a href="student-survey.html" class="qr-link">直接进入 Enter</a>
+        <div class="selection-container">
+            <!-- 学生选项 -->
+            <div class="selection-card" onclick="window.location.href='student-survey.html'">
+                <div class="icon">👨‍🎓</div>
+                <h2>学生问卷</h2>
+                <p class="subtitle">Student Survey</p>
+                <p class="description">关于AI工具帮你解决生活问题的调查问卷</p>
+                <button class="btn">开始填写 Start</button>
             </div>
             
-            <!-- 教师问卷 -->
-            <div class="qr-box">
-                <h2>👨‍🏫 教师问卷</h2>
-                <p>Teacher Survey</p>
-                <div class="qr-code" id="teacher-qr"></div>
-                <a href="teacher-survey.html" class="qr-link">直接进入 Enter</a>
+            <!-- 教师选项 -->
+            <div class="selection-card" onclick="window.location.href='teacher-survey.html'">
+                <div class="icon">👨‍🏫</div>
+                <h2>教师问卷</h2>
+                <p class="subtitle">Teacher Survey</p>
+                <p class="description">AI工具辅助国际中文任务教学调查问卷</p>
+                <button class="btn">开始填写 Start</button>
+            </div>
+        </div>
+        
+        <!-- 二维码区域 -->
+        <div class="qr-section">
+            <button class="qr-toggle" onclick="toggleQR()">
+                📱 显示二维码 Show QR Codes
+            </button>
+            
+            <div class="qr-container" id="qr-container">
+                <div class="qr-box">
+                    <h3>👨‍🎓 学生问卷</h3>
+                    <div class="qr-code" id="student-qr"></div>
+                </div>
+                
+                <div class="qr-box">
+                    <h3>👨‍🏫 教师问卷</h3>
+                    <div class="qr-code" id="teacher-qr"></div>
+                </div>
             </div>
         </div>
         
@@ -151,28 +244,50 @@
     
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script>
-        // 获取当前网站的完整URL
-        const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+        let qrGenerated = false;
         
-        // 生成学生问卷二维码
-        new QRCode(document.getElementById('student-qr'), {
-            text: baseUrl + 'student-survey.html',
-            width: 220,
-            height: 220,
-            colorDark: '#2c3e50',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
+        function toggleQR() {
+            const container = document.getElementById('qr-container');
+            const button = document.querySelector('.qr-toggle');
+            
+            if (container.classList.contains('show')) {
+                container.classList.remove('show');
+                button.textContent = '📱 显示二维码 Show QR Codes';
+            } else {
+                container.classList.add('show');
+                button.textContent = '❌ 隐藏二维码 Hide QR Codes';
+                
+                // 只生成一次二维码
+                if (!qrGenerated) {
+                    generateQRCodes();
+                    qrGenerated = true;
+                }
+            }
+        }
         
-        // 生成教师问卷二维码
-        new QRCode(document.getElementById('teacher-qr'), {
-            text: baseUrl + 'teacher-survey.html',
-            width: 220,
-            height: 220,
-            colorDark: '#2c3e50',
-            colorLight: '#ffffff',
-            correctLevel: QRCode.CorrectLevel.H
-        });
+        function generateQRCodes() {
+            const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+            
+            // 生成学生问卷二维码
+            new QRCode(document.getElementById('student-qr'), {
+                text: baseUrl + 'student-survey.html',
+                width: 180,
+                height: 180,
+                colorDark: '#2c3e50',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            // 生成教师问卷二维码
+            new QRCode(document.getElementById('teacher-qr'), {
+                text: baseUrl + 'teacher-survey.html',
+                width: 180,
+                height: 180,
+                colorDark: '#2c3e50',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
     </script>
 </body>
 </html>
