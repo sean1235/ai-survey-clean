@@ -1,7 +1,22 @@
+// Vercel Serverless Function - MongoDB Atlas
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+let cachedClient = null;
+
+async function connectToDatabase() {
+    if (cachedClient) {
+        return cachedClient;
+    }
+    
+    const client = await MongoClient.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
+    
+    cachedClient = client;
+    return client;
+}
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -19,28 +34,24 @@ export default async function handler(req, res) {
     }
     
     try {
-        await client.connect();
-        const database = client.db('surveyDB');
-        const collection = database.collection('responses');
+        const client = await connectToDatabase();
+        const db = client.db('survey_db');
+        const collection = db.collection('responses');
         
         const data = req.body;
-        data.submittedAt = new Date().toISOString();
-        data.id = Date.now().toString();
+        data.submittedAt = new Date();
         
-        await collection.insertOne(data);
+        const result = await collection.insertOne(data);
         
         res.status(200).json({ 
             success: true, 
-            id: data.id,
-            message: 'Data saved to MongoDB'
+            id: result.insertedId 
         });
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Database error:', error);
         res.status(500).json({ 
             error: 'Failed to save data',
             message: error.message 
         });
-    } finally {
-        await client.close();
     }
 }

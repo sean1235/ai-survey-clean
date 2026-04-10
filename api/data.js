@@ -1,7 +1,22 @@
+// Vercel Serverless Function - MongoDB Atlas
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+let cachedClient = null;
+
+async function connectToDatabase() {
+    if (cachedClient) {
+        return cachedClient;
+    }
+    
+    const client = await MongoClient.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
+    
+    cachedClient = client;
+    return client;
+}
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -14,21 +29,23 @@ export default async function handler(req, res) {
         return;
     }
     
+    if (req.method !== 'GET') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+    
     try {
-        await client.connect();
-        const database = client.db('surveyDB');
-        const collection = database.collection('responses');
+        const client = await connectToDatabase();
+        const db = client.db('survey_db');
+        const collection = db.collection('responses');
         
-        const data = await collection.find({}).toArray();
+        const data = await collection.find({}).sort({ submittedAt: -1 }).toArray();
         
         res.status(200).json(data);
     } catch (error) {
-        console.error('Error:', error);
+        console.error('Database error:', error);
         res.status(500).json({ 
             error: 'Failed to fetch data',
             message: error.message 
         });
-    } finally {
-        await client.close();
     }
 }
