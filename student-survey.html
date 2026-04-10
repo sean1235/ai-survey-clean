@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生问卷 Student Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="survey-container">
+            <div class="survey-header">
+                <h1>关于AI工具（如DeepSeek、ChatGPT）帮你解决生活问题的调查</h1>
+                <p>Survey on Using AI Tools (e.g., DeepSeek, ChatGPT) to Solve Daily Problems</p>
+                <p style="margin-top: 15px;">同学你好！本问卷想了解你用AI工具解决生活中实际问题的情况。大约需3分钟。匿名，只用于研究。<br>
+                Hello! This survey asks how you use AI tools to solve real-life problems. It takes about 3 minutes. Anonymous, only for research. Thank you!</p>
+            </div>
+
+            <div class="progress">
+                <span id="progress-text">问题 1 / 13</span>
+            </div>
+
+            <form id="survey-form">
+                <!-- Q1 -->
+                <div class="question active" data-question="1">
+                    <div class="question-title">
+                        1. 你的中文水平？ / Your Chinese level?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="A" required> A. 初级（HSK1-3级） / Beginner (HSK1-3)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="B"> B. 中级（HSK4-5级） / Intermediate (HSK4-5)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="C"> C. 高级（HSK6级以上） / Advanced (HSK6+)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="D"> D. 没考过 / Not taken HSK</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question" data-question="2">
+                    <div class="question-title">
+                        2. 你在中国学习/生活多久了？ / How long have you been studying/living in China?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="A" required> A. 半年以下 / Less than 6 months</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="B"> B. 半年到1年 / 6 months – 1 year</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="C"> C. 1-2年 / 1-2 years</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="D"> D. 2年以上 / More than 2 years</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question" data-question="3">
+                    <div class="question-title">
+                        3. 你用没使用过DeepSeek？ / Have you used DeepSeek?<br>
+                        <small style="color: #888;">(选D请继续答第4题；选A/B/C请跳至第5题) / (If D, go to Q4. If A/B/C, skip to Q5.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="A" required> A. 经常用（每周3次以上） / Often (3+ times/week)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="B"> B. 偶尔用（每周1-2次） / Sometimes (1-2 times/week)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="C"> C. 很少用（每月1-2次） / Rarely (1-2 times/month)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="D"> D. 没用过 / Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question" data-question="4">
+                    <div class="question-title">
+                        4. 你用没使用过其他AI工具（比如ChatGPT、豆包）？ / Have you used other AI tools (e.g., ChatGPT, Doubao)?<br>
+                        <small style="color: #888;">(选D则问卷结束；选A/B/C请勾选具体工具，然后继续第5题) / (If D, end of survey. If A/B/C, check tools, then go to Q5.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="A" required> A. 经常用 / Often</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="B"> B. 偶尔用 / Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="C"> C. 很少用 / Rarely</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="D"> D. 没用过 / Never</label>
+                        </div>
+                        <div class="option" style="margin-top: 15px;">
+                            <label style="font-weight: 600; display: block; margin-bottom: 10px;">请勾选具体工具 / Please check the tool(s):</label>
+                            <div style="margin-left: 20px;">
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="q4_tools" value="ChatGPT"> ChatGPT
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="q4_tools" value="Doubao"> 豆包 / Doubao
+                                </label>
+                                <label style="display: block;">
+                                    其他 / Other: <input type="text" name="q4_other" style="width: 200px; margin-left: 10px;">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question" data-question="5">
+                    <div class="question-title">
+                        5. 你遇到过下面这些生活困难吗？（可多选） / Have you faced any of these problems? (Select all that apply)
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="A"> A. 看病（不知道挂哪个科、不会说哪里不舒服） / Seeing a doctor</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="B"> B. 租房（听不懂中介的话、看不懂合同） / Renting</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="C"> C. 点餐（不会点菜、不会结账） / Ordering food</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="D"> D. 办银行卡（听不懂工作人员的问题） / Getting a bank card</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="E"> E. 和朋友吃饭（不知道怎么回应"吃吃吃""干杯"） / Eating with friends</label>
+                        </div>
+                        <div class="option">
+                            <label>F. 其他 / Other: <input type="text" name="q5_other" style="width: 100%; margin-top: 5px;"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question" data-question="6">
+                    <div class="question-title">
+                        6. 遇到这些问题，你会问AI工具吗？ / When you face these problems, do you ask AI for help?<br>
+                        <small style="color: #888;">(选D请跳至第9题；选A/B/C请继续答第7、8题) / (If D, skip to Q9. If A/B/C, continue to Q7 & Q8.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="A" required> A. 经常会 / Often</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="B"> B. 偶尔会 / Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="C"> C. 很少会 / Rarely</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="D"> D. 不会 / Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question" data-question="7">
+                    <div class="question-title">
+                        7. 你一般怎么问AI？请写一个例子 / How do you usually ask AI? Please give an example.<br>
+                        <small style="color: #888;">(如"我要去医院，怎么和医生说我的病？" / e.g., "I need to go to the hospital. How do I tell the doctor my symptoms?")</small>
+                    </div>
+                    <div class="options">
+                        <textarea name="q7" placeholder="请在此输入您的例子 / Please enter your example here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question" data-question="8">
+                    <div class="question-title">
+                        8. AI的回答对你有帮助吗？ / Are AI's answers helpful to you?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q8" value="A" required> A. 很有帮助 / Very helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q8" value="B"> B. 有点帮助 / Somewhat helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q8" value="C"> C. 帮助不大 / Not very helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q8" value="D"> D. 没帮助 / Not helpful at all</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question" data-question="9">
+                    <div class="question-title">
+                        9. 你希望AI在帮你解决生活问题时，能做什么？（可多选） / What do you want AI to do when helping you solve problems?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="A"> A. 提前告诉我可能会遇到什么 / Tell me in advance what I might face</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="B"> B. 帮我准备要说的话 / Help me prepare what to say</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="C"> C. 和我模拟对话，让我先练习 / Simulate a conversation with me to practice</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="D"> D. 我遇到问题时可以马上问它 / Let me ask it immediately when I have a problem</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="E"> E. 事后告诉我哪里说错了 / Tell me later where I made mistakes</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question" data-question="10">
+                    <div class="question-title">
+                        10. 你有没有因为文化不同说错话、被人误会过？ / Have you ever said something wrong or been misunderstood because of cultural differences?<br>
+                        <small style="color: #888;">(比如：冬天想买冰奶茶，问"你有冰吗"，服务员听成"你有病吗" / Example: In winter, you ask "Do you have ice?" for iced milk tea, but the server hears "Do you have a disease?")</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q10" value="A" required> A. 经常有 / Often</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q10" value="B"> B. 偶尔有 / Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q10" value="C"> C. 听说过，但自己没有 / Heard of it but not myself</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q10" value="D"> D. 从来没有 / Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="question" data-question="11">
+                    <div class="question-title">
+                        11. 如果有，请简单写一个例子（选填）： / If yes, please give a short example (optional):
+                    </div>
+                    <div class="options">
+                        <textarea name="q11" placeholder="请在此输入您的例子 / Please enter your example here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question" data-question="12">
+                    <div class="question-title">
+                        12. 你希望AI怎么帮你解释这种文化误会？（可多选） / How do you want AI to explain cultural misunderstandings?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="A"> A. 告诉我为什么会被误会 / Tell me why the misunderstanding happened</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="B"> B. 教我说正确的话 / Teach me the correct way to say it</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="C"> C. 告诉我背后的文化知识 / Tell me the cultural background</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="D"> D. 模拟类似场景让我练习 / Simulate a similar scene for me to practice</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="question" data-question="13">
+                    <div class="question-title">
+                        13. 你对用AI学中文还有什么建议吗？（选填） / Do you have any other suggestions for learning Chinese with AI? (Optional)
+                    </div>
+                    <div class="options">
+                        <textarea name="q13" placeholder="请在此输入您的建议 / Please enter your suggestions here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Thank You Page -->
+                <div class="question" data-question="thank-you">
+                    <div class="thank-you">
+                        <h2>问卷结束，非常感谢你的帮助！</h2>
+                        <h2>End of survey. Thank you very much!</h2>
+                        <p>祝你学习顺利！<br>Good luck with your Chinese studies!</p>
+                        <a href="index.html" class="back-home">返回首页 / Back to Home</a>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button type="button" class="nav-btn" id="prev-btn" onclick="previousQuestion()" disabled>上一题 Previous</button>
+                    <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">下一题 Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="student-survey.js"></script>
+</body>
+</html>

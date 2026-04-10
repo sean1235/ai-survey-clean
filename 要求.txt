@@ -1,0 +1,247 @@
+学生问卷（中英文对照版）
+
+关于AI工具（如DeepSeek、ChatGPT）帮你解决生活问题的调查
+
+Survey on Using AI Tools (e.g., DeepSeek, ChatGPT) to Solve Daily Problems
+
+同学你好！ / Hello!
+本问卷想了解你用AI工具解决生活中实际问题的情况。大约需3分钟。匿名，只用于研究。
+This survey asks how you use AI tools to solve real-life problems. It takes about 3 minutes. Anonymous, only for research. Thank you!
+
+---
+
+1. 你的中文水平？ / Your Chinese level?
+A. 初级（HSK1-3级） / Beginner (HSK1-3)
+B. 中级（HSK4-5级） / Intermediate (HSK4-5)
+C. 高级（HSK6级以上） / Advanced (HSK6+)
+D. 没考过 / Not taken HSK
+
+2. 你在中国学习/生活多久了？ / How long have you been studying/living in China?
+A. 半年以下 / Less than 6 months
+B. 半年到1年 / 6 months – 1 year
+C. 1-2年 / 1-2 years
+D. 2年以上 / More than 2 years
+
+---
+
+3. 你用没使用过DeepSeek？ / Have you used DeepSeek?
+A. 经常用（每周3次以上） / Often (3+ times/week)
+B. 偶尔用（每周1-2次） / Sometimes (1-2 times/week)
+C. 很少用（每月1-2次） / Rarely (1-2 times/month)
+D. 没用过 / Never
+
+（选D请继续答第4题；选A/B/C请跳至第5题）
+(If D, go to Q4. If A/B/C, skip to Q5.)
+
+4. 你用没使用过其他AI工具（比如ChatGPT、豆包）？ / Have you used other AI tools (e.g., ChatGPT, Doubao)?
+A. 经常用 / Often
+B. 偶尔用 / Sometimes
+C. 很少用 / Rarely
+D. 没用过 / Never
+
+（选D则问卷结束；选A/B/C请勾选具体工具：□ChatGPT □豆包 □其他______，然后继续第5题）
+(If D, end of survey. If A/B/C, please check the tool(s): □ChatGPT □Doubao □Other______, then go to Q5.)
+
+---
+
+5. 你遇到过下面这些生活困难吗？（可多选） / Have you faced any of these problems? (Select all that apply)
+A. 看病（不知道挂哪个科、不会说哪里不舒服） / Seeing a doctor (don’t know which department, can’t describe symptoms)
+B. 租房（听不懂中介的话、看不懂合同） / Renting (don’t understand agent, can’t read contract)
+C. 点餐（不会点菜、不会结账） / Ordering food (don’t know how to order or pay)
+D. 办银行卡（听不懂工作人员的问题） / Getting a bank card (don’t understand staff’s questions)
+E. 和朋友吃饭（不知道怎么回应“吃吃吃”“干杯”） / Eating with friends (don’t know how to respond to “Eat! Eat!” or “Cheers!”)
+F. 其他 / Other ______
+
+6. 遇到这些问题，你会问AI工具吗？ / When you face these problems, do you ask AI for help?
+A. 经常会 / Often
+B. 偶尔会 / Sometimes
+C. 很少会 / Rarely
+D. 不会 / Never
+
+（选D请跳至第9题；选A/B/C请继续答第7、8题）
+(If D, skip to Q9. If A/B/C, continue to Q7 & Q8.)
+
+7. 你一般怎么问AI？请写一个例子 / How do you usually ask AI? Please give an example.
+（如“我要去医院，怎么和医生说我的病？” / e.g., “I need to go to the hospital. How do I tell the doctor my symptoms?”）
+
+---
+
+8. AI的回答对你有帮助吗？ / Are AI’s answers helpful to you?
+A. 很有帮助 / Very helpful
+B. 有点帮助 / Somewhat helpful
+C. 帮助不大 / Not very helpful
+D. 没帮助 / Not helpful at all
+
+9. 你希望AI在帮你解决生活问题时，能做什么？（可多选） / What do you want AI to do when helping you solve problems? (Select all that apply)
+A. 提前告诉我可能会遇到什么 / Tell me in advance what I might face
+B. 帮我准备要说的话 / Help me prepare what to say
+C. 和我模拟对话，让我先练习 / Simulate a conversation with me to practice
+D. 我遇到问题时可以马上问它 / Let me ask it immediately when I have a problem
+E. 事后告诉我哪里说错了 / Tell me later where I made mistakes
+
+---
+
+10. 你有没有因为文化不同说错话、被人误会过？ / Have you ever said something wrong or been misunderstood because of cultural differences?
+（比如：冬天想买冰奶茶，问“你有冰吗”，服务员听成“你有病吗” / Example: In winter, you ask “Do you have ice?” for iced milk tea, but the server hears “Do you have a disease?”）
+A. 经常有 / Often
+B. 偶尔有 / Sometimes
+C. 听说过，但自己没有 / Heard of it but not myself
+D. 从来没有 / Never
+
+11. 如果有，请简单写一个例子（选填）： / If yes, please give a short example (optional):
+
+---
+
+12. 你希望AI怎么帮你解释这种文化误会？（可多选） / How do you want AI to explain cultural misunderstandings? (Select all that apply)
+A. 告诉我为什么会被误会 / Tell me why the misunderstanding happened
+B. 教我说正确的话 / Teach me the correct way to say it
+C. 告诉我背后的文化知识 / Tell me the cultural background
+D. 模拟类似场景让我练习 / Simulate a similar scene for me to practice
+
+---
+
+13. 你对用AI学中文还有什么建议吗？（选填） / Do you have any other suggestions for learning Chinese with AI? (Optional)
+
+---
+
+问卷结束，非常感谢你的帮助！祝你学习顺利！
+End of survey. Thank you very much! Good luck with your Chinese studies!
+
+
+
+
+教师问卷（中英对照版）
+
+AI工具（如DeepSeek等）辅助国际中文任务教学调查
+
+Survey on AI Tools (e.g., DeepSeek) for Task-Based Chinese Teaching
+
+尊敬的老师：
+Dear Teacher,
+
+您好！本问卷旨在了解您使用AI工具辅助学生解决真实生活任务（如看病、租房、点餐等）以及文化误解（如“吃吃吃”“你有冰吗”）的情况。填写约需3-5分钟。问卷匿名，仅用于学术研究。感谢您的支持！
+This survey asks how you use AI tools to help students solve real-life tasks (e.g., seeing a doctor, renting, ordering food) and cultural misunderstandings (e.g., “Eat! Eat!”, “Do you have ice?”). It takes about 3-5 minutes. Anonymous, only for research. Thank you!
+
+---
+
+第一部分：基本情况 / Part 1: Basic Information
+
+1. 您的教龄？ / Your teaching experience?
+A. 1年以下 / Less than 1 year
+B. 1-3年 / 1-3 years
+C. 3-5年 / 3-5 years
+D. 5年以上 / More than 5 years
+
+2. 您目前的教学环境？ / Your current teaching environment?
+A. 国内高校 / Chinese university
+B. 海外孔子学院 / Overseas Confucius Institute
+C. 线上教学机构 / Online teaching institution
+D. 其他（请注明） / Other (please specify) ______
+
+---
+
+第二部分：AI工具使用情况 / Part 2: Use of AI Tools
+
+3. 您是否使用过DeepSeek辅助教学？ / Have you used DeepSeek for teaching?
+A. 经常使用（每周3次以上） / Often (3+ times/week)
+B. 偶尔使用（每周1-2次） / Sometimes (1-2 times/week)
+C. 很少使用（每月1-2次） / Rarely (1-2 times/month)
+D. 从未使用 / Never
+
+（选A/B/C请跳至第5题；选D请继续回答第4题）
+(If A/B/C, skip to Q5. If D, go to Q4.)
+
+4. 您是否使用过其他AI工具（如ChatGPT、豆包等）辅助教学？ / Have you used other AI tools (e.g., ChatGPT, Doubao) for teaching?
+A. 经常使用 / Often
+B. 偶尔使用 / Sometimes
+C. 很少使用 / Rarely
+D. 从未使用 / Never
+
+（选D则问卷结束，感谢您！选A/B/C请勾选具体工具，然后继续第5题）
+(If D, end of survey. If A/B/C, please check the tool(s) below, then go to Q5.)
+
+您主要使用哪些其他AI工具？（可多选） / Which other AI tools do you use? (Select all that apply)
+□ ChatGPT
+□ 豆包 / Doubao
+□ 文心一言 / Ernie Bot
+□ 其他（请注明） / Other (please specify) ______
+
+---
+
+第三部分：教学应用情况 / Part 3: Teaching Application
+
+（以下题目中，“您使用的AI工具”指：若您使用DeepSeek则指DeepSeek，若使用其他AI则指您勾选的工具。）
+(In the following questions, “the AI tool you use” means DeepSeek if you use it, or the other tool(s) you selected.)
+
+5. 您主要在哪些教学环节使用AI工具？（可多选） / In which teaching stages do you use AI tools? (Select all that apply)
+A. 备课（生成材料、设计活动） / Lesson preparation (generate materials, design activities)
+B. 课堂互动（情景对话、角色扮演） / Classroom interaction (situational dialogues, role-play)
+C. 作业辅导（批改、纠错、解释） / Homework guidance (correcting, explaining errors)
+D. 学情分析 / Learning analysis
+E. 其他（请注明） / Other (please specify) ______
+
+6. 您是否尝试过用AI工具辅助学生解决真实生活任务（如就医、租房、点餐等）？ / Have you tried using AI tools to help students solve real-life tasks (e.g., seeing a doctor, renting, ordering food)?
+A. 经常尝试 / Often
+B. 偶尔尝试 / Sometimes
+C. 从未尝试 / Never
+
+（选C请跳至第8题；选A/B请继续回答第7题）
+(If C, skip to Q8. If A/B, continue to Q7.)
+
+7. 您尝试过以下哪些任务场景？（可多选） / Which task scenarios have you tried? (Select all that apply)
+A. 就医（挂号、描述症状） / Seeing a doctor (registering, describing symptoms)
+B. 租房（与中介沟通） / Renting (communicating with agent)
+C. 点餐（点菜、结账） / Ordering food (ordering, paying)
+D. 办银行卡（填表、沟通） / Getting a bank card (filling forms, communicating)
+E. 参加饭局（回应“吃吃吃”、敬酒等） / Attending a dinner party (responding to “Eat! Eat!”, toasting)
+F. 其他（请注明） / Other (please specify) ______
+
+---
+
+第四部分：指令设计与困难 / Part 4: Prompt Design & Difficulties
+
+8. 您在使用AI工具时，通常如何提问？请举例说明（如“请解释中国人说‘哪里哪里’的含义，并模拟对话”）
+How do you usually phrase your prompts? Please give an example (e.g., “Please explain the meaning of ‘Nǎli nǎli’ and simulate a conversation.”)
+
+---
+
+9. 您在使用中遇到过哪些困难？（可多选） / What difficulties have you encountered? (Select all that apply)
+A. 不知道怎么提问才能得到想要的回答 / Don’t know how to prompt to get the desired answer
+B. AI生成的对话难度不合适 / AI-generated dialogue is at the wrong difficulty level
+C. AI的回答偏离主题 / AI’s answer is off-topic
+D. AI对文化现象的解释不够准确 / AI’s explanation of cultural phenomena is inaccurate
+E. 其他（请注明） / Other (please specify) ______
+
+10. 您希望AI工具在辅助任务教学时，能提供哪些功能？（可多选） / What functions would you like AI tools to provide for task-based teaching? (Select all that apply)
+A. 根据场景生成对话模板 / Generate dialogue templates based on scenarios
+B. 分步骤引导学生完成任务 / Guide students step by step to complete tasks
+C. 实时纠错并解释 / Correct errors in real time and explain
+D. 模拟真实对话场景 / Simulate real conversation scenarios
+E. 事后复盘分析错误 / Analyze mistakes after the task
+
+---
+
+第五部分：对指令模板的需求 / Part 5: Need for Prompt Templates
+
+11. 如果有一套“提问模板”教您“怎么问才能得到好答案”，您觉得对教学有帮助吗？
+If there were a set of “prompt templates” teaching you “how to ask to get good answers”, would it be helpful for your teaching?
+A. 非常有帮助 / Very helpful
+B. 有一定帮助 / Somewhat helpful
+C. 帮助不大 / Not very helpful
+D. 不需要 / Not needed
+
+12. 您最希望获得哪些类型的提问模板？（可多选） / Which types of prompt templates would you most like to have? (Select all that apply)
+A. 情境创设类（如：模拟挂号、点餐） / Scenario creation (e.g., simulate hospital registration, ordering food)
+B. 纠错反馈类（如：纠正“一个书”为“一本书”） / Error correction (e.g., correct “yī gè shū” to “yī běn shū”)
+C. 文化解读类（如：解释“哪里哪里”） / Cultural interpretation (e.g., explain “Nǎli nǎli”)
+D. 任务分解类（如：把“租房”拆成步骤） / Task breakdown (e.g., break “renting” into steps)
+
+13. 您对AI作为“互动型助教”还有什么建议？（选填）
+Do you have any other suggestions for AI as an “interactive teaching assistant”? (Optional)
+
+---
+
+问卷结束，非常感谢您的支持！
+End of survey. Thank you very much for your support!
+
+

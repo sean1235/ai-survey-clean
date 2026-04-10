@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师问卷 Teacher Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="survey-container">
+            <div class="survey-header">
+                <h1>AI工具（如DeepSeek等）辅助国际中文任务教学调查</h1>
+                <p>Survey on AI Tools (e.g., DeepSeek) for Task-Based Chinese Teaching</p>
+                <p style="margin-top: 15px;">尊敬的老师：您好！本问卷旨在了解您使用AI工具辅助学生解决真实生活任务的情况。填写约需3-5分钟。问卷匿名，仅用于学术研究。感谢您的支持！<br>
+                Dear Teacher, This survey asks how you use AI tools to help students solve real-life tasks. It takes about 3-5 minutes. Anonymous, only for research. Thank you!</p>
+            </div>
+
+            <div class="progress">
+                <span id="progress-text">问题 1 / 13</span>
+            </div>
+
+            <form id="survey-form">
+                <!-- 第一部分 -->
+                <div class="question active" data-question="1">
+                    <div class="question-title">
+                        <strong>第一部分：基本情况 / Part 1: Basic Information</strong><br><br>
+                        1. 您的教龄？ / Your teaching experience?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="A" required> A. 1年以下 / Less than 1 year</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="B"> B. 1-3年 / 1-3 years</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="C"> C. 3-5年 / 3-5 years</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q1" value="D"> D. 5年以上 / More than 5 years</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="question" data-question="2">
+                    <div class="question-title">
+                        2. 您目前的教学环境？ / Your current teaching environment?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="A" required> A. 国内高校 / Chinese university</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="B"> B. 海外孔子学院 / Overseas Confucius Institute</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q2" value="C"> C. 线上教学机构 / Online teaching institution</label>
+                        </div>
+                        <div class="option">
+                            <label>D. 其他（请注明） / Other: <input type="text" name="q2_other" style="width: 100%; margin-top: 5px;"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="question" data-question="3">
+                    <div class="question-title">
+                        <strong>第二部分：AI工具使用情况 / Part 2: Use of AI Tools</strong><br><br>
+                        3. 您是否使用过DeepSeek辅助教学？ / Have you used DeepSeek for teaching?<br>
+                        <small style="color: #888;">(选A/B/C请跳至第5题；选D请继续回答第4题) / (If A/B/C, skip to Q5. If D, go to Q4.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="A" required> A. 经常使用（每周3次以上） / Often (3+ times/week)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="B"> B. 偶尔使用（每周1-2次） / Sometimes (1-2 times/week)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="C"> C. 很少使用（每月1-2次） / Rarely (1-2 times/month)</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q3" value="D"> D. 从未使用 / Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="question" data-question="4">
+                    <div class="question-title">
+                        4. 您是否使用过其他AI工具（如ChatGPT、豆包等）辅助教学？ / Have you used other AI tools for teaching?<br>
+                        <small style="color: #888;">(选D则问卷结束；选A/B/C请勾选具体工具，然后继续第5题) / (If D, end of survey. If A/B/C, check tools, then go to Q5.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="A" required> A. 经常使用 / Often</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="B"> B. 偶尔使用 / Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="C"> C. 很少使用 / Rarely</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q4" value="D"> D. 从未使用 / Never</label>
+                        </div>
+                        <div class="option" style="margin-top: 15px;">
+                            <label style="font-weight: 600; display: block; margin-bottom: 10px;">您主要使用哪些其他AI工具？（可多选） / Which other AI tools do you use?</label>
+                            <div style="margin-left: 20px;">
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="q4_tools" value="ChatGPT"> ChatGPT
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="q4_tools" value="Doubao"> 豆包 / Doubao
+                                </label>
+                                <label style="display: block; margin-bottom: 8px;">
+                                    <input type="checkbox" name="q4_tools" value="Ernie"> 文心一言 / Ernie Bot
+                                </label>
+                                <label style="display: block;">
+                                    其他 / Other: <input type="text" name="q4_other" style="width: 200px; margin-left: 10px;">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="question" data-question="5">
+                    <div class="question-title">
+                        <strong>第三部分：教学应用情况 / Part 3: Teaching Application</strong><br><br>
+                        5. 您主要在哪些教学环节使用AI工具？（可多选） / In which teaching stages do you use AI tools?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="A"> A. 备课（生成材料、设计活动） / Lesson preparation</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="B"> B. 课堂互动（情景对话、角色扮演） / Classroom interaction</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="C"> C. 作业辅导（批改、纠错、解释） / Homework guidance</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q5" value="D"> D. 学情分析 / Learning analysis</label>
+                        </div>
+                        <div class="option">
+                            <label>E. 其他 / Other: <input type="text" name="q5_other" style="width: 100%; margin-top: 5px;"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="question" data-question="6">
+                    <div class="question-title">
+                        6. 您是否尝试过用AI工具辅助学生解决真实生活任务？ / Have you tried using AI tools to help students solve real-life tasks?<br>
+                        <small style="color: #888;">(选C请跳至第8题；选A/B请继续回答第7题) / (If C, skip to Q8. If A/B, continue to Q7.)</small>
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="A" required> A. 经常尝试 / Often</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="B"> B. 偶尔尝试 / Sometimes</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q6" value="C"> C. 从未尝试 / Never</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="question" data-question="7">
+                    <div class="question-title">
+                        7. 您尝试过以下哪些任务场景？（可多选） / Which task scenarios have you tried?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q7" value="A"> A. 就医（挂号、描述症状） / Seeing a doctor</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q7" value="B"> B. 租房（与中介沟通） / Renting</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q7" value="C"> C. 点餐（点菜、结账） / Ordering food</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q7" value="D"> D. 办银行卡（填表、沟通） / Getting a bank card</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q7" value="E"> E. 参加饭局（回应"吃吃吃"、敬酒等） / Attending a dinner party</label>
+                        </div>
+                        <div class="option">
+                            <label>F. 其他 / Other: <input type="text" name="q7_other" style="width: 100%; margin-top: 5px;"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="question" data-question="8">
+                    <div class="question-title">
+                        <strong>第四部分：指令设计与困难 / Part 4: Prompt Design & Difficulties</strong><br><br>
+                        8. 您在使用AI工具时，通常如何提问？请举例说明<br>
+                        How do you usually phrase your prompts? Please give an example<br>
+                        <small style="color: #888;">(如"请解释中国人说'哪里哪里'的含义，并模拟对话" / e.g., "Please explain the meaning of 'Nǎli nǎli' and simulate a conversation.")</small>
+                    </div>
+                    <div class="options">
+                        <textarea name="q8" placeholder="请在此输入您的例子 / Please enter your example here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="question" data-question="9">
+                    <div class="question-title">
+                        9. 您在使用中遇到过哪些困难？（可多选） / What difficulties have you encountered?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="A"> A. 不知道怎么提问才能得到想要的回答 / Don't know how to prompt</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="B"> B. AI生成的对话难度不合适 / AI-generated dialogue is at wrong difficulty level</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="C"> C. AI的回答偏离主题 / AI's answer is off-topic</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q9" value="D"> D. AI对文化现象的解释不够准确 / AI's cultural explanation is inaccurate</label>
+                        </div>
+                        <div class="option">
+                            <label>E. 其他 / Other: <input type="text" name="q9_other" style="width: 100%; margin-top: 5px;"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="question" data-question="10">
+                    <div class="question-title">
+                        10. 您希望AI工具在辅助任务教学时，能提供哪些功能？（可多选） / What functions would you like AI tools to provide?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q10" value="A"> A. 根据场景生成对话模板 / Generate dialogue templates</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q10" value="B"> B. 分步骤引导学生完成任务 / Guide students step by step</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q10" value="C"> C. 实时纠错并解释 / Correct errors in real time</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q10" value="D"> D. 模拟真实对话场景 / Simulate real conversation scenarios</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q10" value="E"> E. 事后复盘分析错误 / Analyze mistakes after the task</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="question" data-question="11">
+                    <div class="question-title">
+                        <strong>第五部分：对指令模板的需求 / Part 5: Need for Prompt Templates</strong><br><br>
+                        11. 如果有一套"提问模板"教您"怎么问才能得到好答案"，您觉得对教学有帮助吗？<br>
+                        If there were prompt templates, would it be helpful for your teaching?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="q11" value="A" required> A. 非常有帮助 / Very helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q11" value="B"> B. 有一定帮助 / Somewhat helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q11" value="C"> C. 帮助不大 / Not very helpful</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="q11" value="D"> D. 不需要 / Not needed</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="question" data-question="12">
+                    <div class="question-title">
+                        12. 您最希望获得哪些类型的提问模板？（可多选） / Which types of prompt templates would you most like to have?
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="A"> A. 情境创设类（如：模拟挂号、点餐） / Scenario creation</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="B"> B. 纠错反馈类（如：纠正"一个书"为"一本书"） / Error correction</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="C"> C. 文化解读类（如：解释"哪里哪里"） / Cultural interpretation</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="checkbox" name="q12" value="D"> D. 任务分解类（如：把"租房"拆成步骤） / Task breakdown</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="question" data-question="13">
+                    <div class="question-title">
+                        13. 您对AI作为"互动型助教"还有什么建议？（选填）<br>
+                        Do you have any other suggestions for AI as an "interactive teaching assistant"? (Optional)
+                    </div>
+                    <div class="options">
+                        <textarea name="q13" placeholder="请在此输入您的建议 / Please enter your suggestions here..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Thank You Page -->
+                <div class="question" data-question="thank-you">
+                    <div class="thank-you">
+                        <h2>问卷结束，非常感谢您的支持！</h2>
+                        <h2>End of survey. Thank you very much for your support!</h2>
+                        <a href="index.html" class="back-home">返回首页 / Back to Home</a>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button type="button" class="nav-btn" id="prev-btn" onclick="previousQuestion()" disabled>上一题 Previous</button>
+                    <button type="button" class="nav-btn" id="next-btn" onclick="nextQuestion()">下一题 Next</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="teacher-survey.js"></script>
+</body>
+</html>
