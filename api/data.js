@@ -1,4 +1,8 @@
-// 返回空数据，让前端使用本地存储
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,6 +14,21 @@ export default async function handler(req, res) {
         return;
     }
     
-    // 返回空数组，前端会使用localStorage
-    res.status(200).json([]);
+    try {
+        await client.connect();
+        const database = client.db('surveyDB');
+        const collection = database.collection('responses');
+        
+        const data = await collection.find({}).toArray();
+        
+        res.status(200).json(data);
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ 
+            error: 'Failed to fetch data',
+            message: error.message 
+        });
+    } finally {
+        await client.close();
+    }
 }

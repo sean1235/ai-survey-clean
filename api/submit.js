@@ -1,4 +1,8 @@
-// 使用Vercel KV存储（免费）
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -15,15 +19,20 @@ export default async function handler(req, res) {
     }
     
     try {
+        await client.connect();
+        const database = client.db('surveyDB');
+        const collection = database.collection('responses');
+        
         const data = req.body;
         data.submittedAt = new Date().toISOString();
         data.id = Date.now().toString();
         
-        // 返回成功，数据会保存在浏览器本地
+        await collection.insertOne(data);
+        
         res.status(200).json({ 
             success: true, 
             id: data.id,
-            message: 'Data saved locally'
+            message: 'Data saved to MongoDB'
         });
     } catch (error) {
         console.error('Error:', error);
@@ -31,5 +40,7 @@ export default async function handler(req, res) {
             error: 'Failed to save data',
             message: error.message 
         });
+    } finally {
+        await client.close();
     }
 }

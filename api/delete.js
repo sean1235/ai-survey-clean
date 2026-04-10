@@ -1,3 +1,8 @@
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+const client = new MongoClient(uri);
+
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -9,5 +14,27 @@ export default async function handler(req, res) {
         return;
     }
     
-    res.status(200).json({ success: true });
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+    
+    try {
+        await client.connect();
+        const database = client.db('surveyDB');
+        const collection = database.collection('responses');
+        
+        const { id } = req.body;
+        
+        await collection.deleteOne({ id: id });
+        
+        res.status(200).json({ success: true });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ 
+            error: 'Failed to delete data',
+            message: error.message 
+        });
+    } finally {
+        await client.close();
+    }
 }

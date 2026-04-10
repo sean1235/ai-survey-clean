@@ -1,22 +1,7 @@
-// Vercel Serverless Function
 import { MongoClient } from 'mongodb';
 
 const uri = process.env.MONGODB_URI;
-let cachedClient = null;
-
-async function connectToDatabase() {
-    if (cachedClient) {
-        return cachedClient;
-    }
-    
-    const client = await MongoClient.connect(uri, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
-    
-    cachedClient = client;
-    return client;
-}
+const client = new MongoClient(uri);
 
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
@@ -34,9 +19,9 @@ export default async function handler(req, res) {
     }
     
     try {
-        const client = await connectToDatabase();
-        const db = client.db('survey_db');
-        const collection = db.collection('responses');
+        await client.connect();
+        const database = client.db('surveyDB');
+        const collection = database.collection('responses');
         
         const result = await collection.deleteMany({});
         
@@ -45,10 +30,12 @@ export default async function handler(req, res) {
             deletedCount: result.deletedCount
         });
     } catch (error) {
-        console.error('Database error:', error);
+        console.error('Error:', error);
         res.status(500).json({ 
             error: 'Failed to clear data',
             message: error.message 
         });
+    } finally {
+        await client.close();
     }
 }

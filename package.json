@@ -1,6 +1,7 @@
 {
   "name": "survey-system",
   "version": "1.0.0",
+  "type": "module",
   "description": "AI工具问卷调查系统 Survey System for AI Tools",
   "main": "index.html",
   "scripts": {
