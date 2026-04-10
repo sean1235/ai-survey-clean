@@ -18,8 +18,9 @@ async function loadData() {
             throw new Error('API not available');
         }
     } catch (error) {
-        // 如果API不可用，从本地存储加载
-        allData = JSON.parse(localStorage.getItem('surveyData') || '[]');
+        console.error('加载数据失败:', error);
+        alert('无法加载数据，请检查网络连接 / Failed to load data, please check your network connection');
+        allData = [];
     }
     
     filteredData = allData;
@@ -238,36 +239,45 @@ function viewDetail(index) {
     alert('详细数据 / Detailed Data:\n\n' + detail);
 }
 
-function deleteItem(index) {
+async function deleteItem(index) {
     if (confirm('确定要删除这条数据吗？ / Are you sure to delete this item?')) {
         const item = filteredData[index];
-        const globalIndex = allData.indexOf(item);
-        allData.splice(globalIndex, 1);
         
-        // 保存到本地存储
-        localStorage.setItem('surveyData', JSON.stringify(allData));
-        
-        // 如果有API，也发送删除请求
-        fetch('/api/delete', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: item._id || item.timestamp })
-        }).catch(err => console.log('API delete failed:', err));
-        
-        loadData();
+        try {
+            const response = await fetch('/api/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: item._id || item.id || item.timestamp })
+            });
+            
+            if (response.ok) {
+                await loadData();
+            } else {
+                alert('删除失败 / Delete failed');
+            }
+        } catch (error) {
+            console.error('删除失败:', error);
+            alert('删除失败，请检查网络连接 / Delete failed, please check your network connection');
+        }
     }
 }
 
-function clearData() {
+async function clearData() {
     if (confirm('确定要清空所有数据吗？此操作不可恢复！\nAre you sure to clear all data? This cannot be undone!')) {
-        allData = [];
-        localStorage.setItem('surveyData', JSON.stringify(allData));
-        
-        fetch('/api/clear', { method: 'POST' })
-            .catch(err => console.log('API clear failed:', err));
-        
-        loadData();
+        try {
+            const response = await fetch('/api/clear', { method: 'POST' });
+            
+            if (response.ok) {
+                await loadData();
+            } else {
+                alert('清空失败 / Clear failed');
+            }
+        } catch (error) {
+            console.error('清空失败:', error);
+            alert('清空失败，请检查网络连接 / Clear failed, please check your network connection');
+        }
     }
+}
 }
 
 function exportToExcel() {

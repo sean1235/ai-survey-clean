@@ -165,21 +165,12 @@ async function submitSurvey() {
         if (response.ok) {
             showQuestion('thank-you');
         } else {
-            // 如果API失败，保存到本地存储作为备份
-            saveToLocalStorage(surveyData);
-            showQuestion('thank-you');
+            alert('提交失败，请稍后重试 / Submission failed, please try again later');
         }
     } catch (error) {
         console.error('提交失败:', error);
-        saveToLocalStorage(surveyData);
-        showQuestion('thank-you');
+        alert('提交失败，请检查网络连接 / Submission failed, please check your network connection');
     }
-}
-
-function saveToLocalStorage(data) {
-    const existingData = JSON.parse(localStorage.getItem('surveyData') || '[]');
-    existingData.push(data);
-    localStorage.setItem('surveyData', JSON.stringify(existingData));
 }
 
 // 初始化
