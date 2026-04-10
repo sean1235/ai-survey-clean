@@ -3,29 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>问卷调查系统</title>
+    <title>AI工具问卷调查系统 - 扫码参与</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .qr-box {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .qr-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .qr-box h2 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        
+        .qr-box p {
+            margin: 0 0 20px 0;
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+        
+        .qr-code {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 20px;
+            padding: 15px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+        }
+        
+        .qr-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .qr-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .admin-link {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .admin-link a {
+            color: #95a5a6;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .admin-link a:hover {
+            color: #667eea;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+            font-size: 32px;
+        }
+        
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 18px;
+        }
+        
+        .instructions {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            color: #555;
+        }
+        
+        .instructions p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>问卷调查系统</h1>
-        <p class="subtitle">Survey System</p>
+        <div class="header">
+            <h1>🎓 AI工具问卷调查</h1>
+            <p class="subtitle">Survey System for AI Tools</p>
+        </div>
         
-        <div class="survey-selection">
-            <div class="card" onclick="window.location.href='student-survey.html'">
-                <h2>学生问卷</h2>
+        <div class="instructions">
+            <p>📱 <strong>使用手机扫描下方二维码</strong>，即可参与问卷调查</p>
+            <p>Scan the QR code below to participate in the survey</p>
+        </div>
+        
+        <div class="qr-container">
+            <!-- 学生问卷 -->
+            <div class="qr-box">
+                <h2>👨‍🎓 学生问卷</h2>
                 <p>Student Survey</p>
-                <p class="description">关于AI工具帮你解决生活问题的调查</p>
-                <button class="btn">开始填写 Start</button>
+                <div class="qr-code" id="student-qr"></div>
+                <a href="student-survey.html" class="qr-link">直接进入 Enter</a>
             </div>
             
-            <div class="card" onclick="window.location.href='teacher-survey.html'">
-                <h2>教师问卷</h2>
+            <!-- 教师问卷 -->
+            <div class="qr-box">
+                <h2>👨‍🏫 教师问卷</h2>
                 <p>Teacher Survey</p>
-                <p class="description">AI工具辅助国际中文任务教学调查</p>
-                <button class="btn">开始填写 Start</button>
+                <div class="qr-code" id="teacher-qr"></div>
+                <a href="teacher-survey.html" class="qr-link">直接进入 Enter</a>
             </div>
         </div>
+        
+        <div class="admin-link">
+            <a href="admin.html">🔐 管理后台 Admin Dashboard</a>
+        </div>
     </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script>
+        // 获取当前网站的完整URL
+        const baseUrl = window.location.origin + window.location.pathname.replace('index.html', '');
+        
+        // 生成学生问卷二维码
+        new QRCode(document.getElementById('student-qr'), {
+            text: baseUrl + 'student-survey.html',
+            width: 220,
+            height: 220,
+            colorDark: '#2c3e50',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        
+        // 生成教师问卷二维码
+        new QRCode(document.getElementById('teacher-qr'), {
+            text: baseUrl + 'teacher-survey.html',
+            width: 220,
+            height: 220,
+            colorDark: '#2c3e50',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    </script>
 </body>
 </html>
