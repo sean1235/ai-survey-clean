@@ -1,4 +1,23 @@
-// 返回空数据，让前端使用本地存储
+// Vercel Serverless Function - MongoDB Atlas
+import { MongoClient } from 'mongodb';
+
+const uri = process.env.MONGODB_URI;
+let cachedClient = null;
+
+async function connectToDatabase() {
+    if (cachedClient) {
+        return cachedClient;
+    }
+    
+    const client = await MongoClient.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
+    
+    cachedClient = client;
+    return client;
+}
+
 export default async function handler(req, res) {
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -10,6 +29,23 @@ export default async function handler(req, res) {
         return;
     }
     
-    // 返回空数组，前端会使用localStorage
-    res.status(200).json([]);
+    if (req.method !== 'GET') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+    
+    try {
+        const client = await connectToDatabase();
+        const db = client.db('survey_db');
+        const collection = db.collection('responses');
+        
+        const data = await collection.find({}).sort({ submittedAt: -1 }).toArray();
+        
+        res.status(200).json(data);
+    } catch (error) {
+        console.error('Database error:', error);
+        res.status(500).json({ 
+            error: 'Failed to fetch data',
+            message: error.message 
+        });
+    }
 }
