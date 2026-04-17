@@ -1,6 +1,6 @@
-let currentQuestion = 1;
+let currentQuestion = 0; // 从地区选择开始
 let answers = {};
-let questionFlow = [1, 2, 3]; // 初始流程
+let questionFlow = [0, 1, 2, 3]; // 初始流程：地区 + 前3题
 
 // 跳转逻辑映射
 const jumpLogic = {
@@ -19,9 +19,12 @@ const jumpLogic = {
 };
 
 function updateProgress() {
-    const totalQuestions = 13;
+    const totalQuestions = 14; // 地区选择 + 13个问题
+    const displayNum = currentQuestion === 0 ? '地区选择' : currentQuestion;
     document.getElementById('progress-text').textContent = 
-        `问题 ${currentQuestion} / ${totalQuestions} | Question ${currentQuestion} / ${totalQuestions}`;
+        currentQuestion === 0 
+            ? `地区选择 / Region Selection` 
+            : `问题 ${currentQuestion} / 13 | Question ${currentQuestion} / 13`;
 }
 
 function showQuestion(questionNum) {
@@ -40,7 +43,7 @@ function updateNavigationButtons() {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     
-    prevBtn.disabled = currentQuestion === 1;
+    prevBtn.disabled = currentQuestion === 0;
     
     if (currentQuestion === 'thank-you') {
         nextBtn.style.display = 'none';
@@ -139,7 +142,7 @@ function nextQuestion() {
 }
 
 function previousQuestion() {
-    if (currentQuestion > 1) {
+    if (currentQuestion > 0) {
         showQuestion(currentQuestion - 1);
     }
 }
@@ -175,5 +178,5 @@ async function submitSurvey() {
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
-    showQuestion(1);
+    showQuestion(0);
 });

@@ -1,4 +1,4 @@
-let currentQuestion = 1;
+let currentQuestion = 0; // 从地区选择开始
 let answers = {};
 
 // 跳转逻辑映射
@@ -20,8 +20,9 @@ const jumpLogic = {
 function updateProgress() {
     const totalQuestions = 13;
     document.getElementById('progress-text').textContent = 
-        `问题 ${currentQuestion} / ${totalQuestions} | Question ${currentQuestion} / ${totalQuestions}`;
-}
+        currentQuestion === 0 
+            ? `地区选择 / Region Selection` 
+            : `问题 ${currentQuestion} / ${totalQuestions} | Question ${currentQuestion} / ${totalQuestions}`;
 
 function showQuestion(questionNum) {
     document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
@@ -39,7 +40,7 @@ function updateNavigationButtons() {
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     
-    prevBtn.disabled = currentQuestion === 1;
+    prevBtn.disabled = currentQuestion === 0;
     
     if (currentQuestion === 'thank-you') {
         nextBtn.style.display = 'none';
@@ -138,7 +139,7 @@ function nextQuestion() {
 }
 
 function previousQuestion() {
-    if (currentQuestion > 1) {
+    if (currentQuestion > 0) {
         showQuestion(currentQuestion - 1);
     }
 }
@@ -174,5 +175,5 @@ async function submitSurvey() {
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {
-    showQuestion(1);
+    showQuestion(0);
 });

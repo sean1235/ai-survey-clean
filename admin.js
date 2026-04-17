@@ -186,10 +186,26 @@ function updateTable() {
     filteredData.forEach((item, index) => {
         const row = tbody.insertRow();
         const dateStr = item.submittedAt || item.timestamp;
+        const ans = item.responses || item.answers || {};
+        const region = ans.region || ans.q0 || 'N/A';
+        
+        // 构建答案摘要
+        let answerSummary = '';
+        Object.keys(ans).forEach(key => {
+            if (key !== 'region' && key !== 'q0') {
+                const value = Array.isArray(ans[key]) ? ans[key].join(', ') : ans[key];
+                answerSummary += `${key}: ${value}; `;
+            }
+        });
+        
         row.innerHTML = `
             <td>${index + 1}</td>
+            <td>${region}</td>
             <td>${item.type === 'student' ? '学生 Student' : '教师 Teacher'}</td>
             <td>${dateStr ? new Date(dateStr).toLocaleString('zh-CN') : 'N/A'}</td>
+            <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${answerSummary}">
+                ${answerSummary || 'N/A'}
+            </td>
             <td>
                 <button onclick="viewDetail(${index})" style="padding: 5px 10px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">
                     查看详情 View

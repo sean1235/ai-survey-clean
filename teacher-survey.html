@@ -21,8 +21,41 @@
             </div>
 
             <form id="survey-form">
+                <!-- 地区选择 -->
+                <div class="question active" data-question="0">
+                    <div class="question-title">
+                        请选择您所在的地区 / Please select your region
+                    </div>
+                    <div class="options">
+                        <div class="option">
+                            <label><input type="radio" name="region" value="华北" required> 华北地区 / North China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="华东"> 华东地区 / East China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="华南"> 华南地区 / South China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="华中"> 华中地区 / Central China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="西南"> 西南地区 / Southwest China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="西北"> 西北地区 / Northwest China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="东北"> 东北地区 / Northeast China</label>
+                        </div>
+                        <div class="option">
+                            <label><input type="radio" name="region" value="其他"> 其他 / Other</label>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 第一部分 -->
-                <div class="question active" data-question="1">
+                <div class="question" data-question="1">
                     <div class="question-title">
                         <strong>第一部分：基本情况 / Part 1: Basic Information</strong><br><br>
                         1. 您的教龄？ / Your teaching experience?
@@ -189,7 +222,7 @@
                             <label><input type="checkbox" name="q7" value="D"> D. 办银行卡（填表、沟通） / Getting a bank card</label>
                         </div>
                         <div class="option">
-                            <label><input type="checkbox" name="q7" value="E"> E. 参加饭局（回应"吃吃吃"、敬酒等） / Attending a dinner party</label>
+                            <label><input type="checkbox" name="q7" value="E"> E. 购物（询问价格、讲价、结账） / Shopping (asking prices, bargaining, checkout)</label>
                         </div>
                         <div class="option">
                             <label>F. 其他 / Other: <input type="text" name="q7_other" style="width: 100%; margin-top: 5px;"></label>
