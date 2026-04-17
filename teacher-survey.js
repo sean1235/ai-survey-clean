@@ -55,6 +55,15 @@ function updateNavigationButtons() {
 function validateCurrentQuestion() {
     const currentQ = document.querySelector(`[data-question="${currentQuestion}"]`);
     
+    // 文本输入验证（地区选择）
+    if (currentQuestion === 0) {
+        const textInput = currentQ.querySelector('input[type="text"][name="region"]');
+        if (textInput && !textInput.value.trim()) {
+            alert('请填写您所在的地区 / Please enter your region');
+            return false;
+        }
+    }
+    
     // 单选题验证
     const radioInputs = currentQ.querySelectorAll('input[type="radio"]');
     if (radioInputs.length > 0) {
