@@ -23,6 +23,7 @@ function updateProgress() {
         currentQuestion === 0 
             ? `地区选择 / Region Selection` 
             : `问题 ${currentQuestion} / ${totalQuestions} | Question ${currentQuestion} / ${totalQuestions}`;
+}
 
 function showQuestion(questionNum) {
     document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
