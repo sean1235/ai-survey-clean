@@ -189,29 +189,53 @@ function updateTable() {
         const ans = item.responses || item.answers || {};
         const region = ans.region || ans.q0 || 'N/A';
         
-        // 构建答案摘要
+        // 构建更清晰的答案摘要
         let answerSummary = '';
-        Object.keys(ans).forEach(key => {
+        const answerParts = [];
+        
+        Object.keys(ans).sort().forEach(key => {
             if (key !== 'region' && key !== 'q0') {
                 const value = Array.isArray(ans[key]) ? ans[key].join(', ') : ans[key];
-                answerSummary += `${key}: ${value}; `;
+                if (value && value.toString().trim()) {
+                    answerParts.push(`${key}: ${value}`);
+                }
             }
         });
         
+        answerSummary = answerParts.join(' | ');
+        
+        // 格式化时间
+        let formattedTime = 'N/A';
+        if (dateStr) {
+            const date = new Date(dateStr);
+            formattedTime = date.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+        
+        // 类型徽章
+        const typeText = item.type === 'student' ? '学生' : '教师';
+        const typeClass = item.type === 'student' ? 'type-student' : 'type-teacher';
+        const typeBadge = `<span class="type-badge ${typeClass}">${typeText}</span>`;
+        
         row.innerHTML = `
-            <td>${index + 1}</td>
-            <td>${region}</td>
-            <td>${item.type === 'student' ? '学生 Student' : '教师 Teacher'}</td>
-            <td>${dateStr ? new Date(dateStr).toLocaleString('zh-CN') : 'N/A'}</td>
-            <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${answerSummary}">
-                ${answerSummary || 'N/A'}
+            <td style="text-align: center; font-weight: 600;">${index + 1}</td>
+            <td class="region-cell">${region}</td>
+            <td class="type-cell">${typeBadge}</td>
+            <td class="time-cell">${formattedTime}</td>
+            <td class="answers-cell" title="${answerSummary}">
+                ${answerSummary || '无数据 No data'}
             </td>
-            <td>
-                <button onclick="viewDetail(${index})" style="padding: 5px 10px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    查看详情 View
+            <td class="actions-cell">
+                <button onclick="viewDetail(${index})" style="padding: 6px 12px; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; margin-right: 5px;">
+                    📋 详情
                 </button>
-                <button onclick="deleteItem(${index})" style="padding: 5px 10px; background: #f44336; color: white; border: none; border-radius: 5px; cursor: pointer; margin-left: 5px;">
-                    删除 Delete
+                <button onclick="deleteItem(${index})" style="padding: 6px 12px; background: #f44336; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px;">
+                    🗑️ 删除
                 </button>
             </td>
         `;
@@ -244,8 +268,37 @@ function filterData() {
 
 function viewDetail(index) {
     const item = filteredData[index];
-    const detail = JSON.stringify(item, null, 2);
-    alert('详细数据 / Detailed Data:\n\n' + detail);
+    const ans = item.responses || item.answers || {};
+    
+    // 构建更美观的详情显示
+    let detailHTML = `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 问卷详细信息 / Survey Details
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📍 地区 Region: ${ans.region || ans.q0 || 'N/A'}
+👤 类型 Type: ${item.type === 'student' ? '学生 Student' : '教师 Teacher'}
+🕐 提交时间 Time: ${item.submittedAt || item.timestamp || 'N/A'}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📝 问卷答案 / Answers
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+`;
+    
+    // 按问题顺序显示答案
+    Object.keys(ans).sort().forEach(key => {
+        if (key !== 'region' && key !== 'q0') {
+            const value = Array.isArray(ans[key]) ? ans[key].join(', ') : ans[key];
+            if (value && value.toString().trim()) {
+                detailHTML += `${key}: ${value}\n\n`;
+            }
+        }
+    });
+    
+    detailHTML += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n完整JSON数据 / Full JSON Data:\n${JSON.stringify(item, null, 2)}`;
+    
+    alert(detailHTML);
 }
 
 async function deleteItem(index) {

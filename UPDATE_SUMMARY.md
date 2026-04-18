@@ -17,22 +17,19 @@
 
 ### 2. ✅ 添加地区选择 / Added Region Selection
 
-**新增问题0：地区选择 / New Question 0: Region Selection**
+**新增问题0：地区选择（文本输入）/ New Question 0: Region Selection (Text Input)**
 
 两份问卷（学生和教师）都添加了地区选择作为第一个问题：
-- 华北 / North China
-- 华东 / East China
-- 华南 / South China
-- 华中 / Central China
-- 西南 / Southwest China
-- 西北 / Northwest China
-- 东北 / Northeast China
-- 其他 / Other
+- **输入方式**：自由文本输入框（用户可以填写任意地区）
+- **示例**：北京、上海、广州、成都等
+- **验证**：必填项，不能为空
 
 **技术实现 / Technical Implementation:**
-- `student-survey.js`: 从问题0开始，更新了进度显示和导航逻辑
-- `teacher-survey.js`: 从问题0开始，更新了进度显示和导航逻辑
-- 两个问卷的HTML文件都已包含地区选择界面
+- `student-survey.html`: 添加文本输入框用于地区填写
+- `teacher-survey.html`: 添加文本输入框用于地区填写
+- `student-survey.js`: 从问题0开始，添加文本输入验证逻辑
+- `teacher-survey.js`: 从问题0开始，添加文本输入验证逻辑
+- 两个问卷的HTML文件都已包含地区输入界面
 
 ### 3. ✅ 管理后台增强 / Admin Dashboard Enhancement
 
@@ -56,8 +53,8 @@
 ### GitHub 推送 / GitHub Push
 ✅ 已成功推送到仓库 / Successfully pushed to repository
 - 仓库：https://github.com/sean1235/ai-survey-clean
-- 提交ID：82d9571
-- 提交信息：Add region selection and detailed data table
+- 最新提交ID：7f88b7f
+- 提交信息：Change region selection from radio buttons to text input
 
 ### Render 自动部署 / Render Auto-Deployment
 🔄 已触发自动部署 / Auto-deployment triggered
