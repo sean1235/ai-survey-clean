@@ -1,7 +1,7 @@
 {
   "name": "survey-system",
-  "version": "1.0.0",
-  "description": "AI工具问卷调查系统 Survey System for AI Tools",
+  "version": "1.0.1",
+  "description": "AI工具问卷调查系统 Survey System for AI Tools - Region text input update",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
